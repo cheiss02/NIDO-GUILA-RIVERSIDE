@@ -1059,8 +1059,13 @@ main > section[id] {
     color: var(--color-primary);
   }
 
+  .header-tools {
+    margin-left: auto;
+  }
+
   .menu-toggle {
     display: inline-flex;
+    margin-right: -10px;
   }
 
   body.nav-open {
