@@ -1,40 +1,17 @@
-/* Navigation, mobile menu, sticky-header state, scroll-spy and the
-   fade-in that runs as each section comes into view. */
+/* Mobile menu, sticky-header state, back-to-top button and the fade-in
+   that runs as each section scrolls into view. The header and footer
+   markup is injected by layout.js, which runs first. */
 
 (function () {
   var header = document.querySelector("[data-header]");
   var nav = document.getElementById("site-nav");
   var toggle = document.querySelector("[data-menu-toggle]");
   var backdrop = document.querySelector(".nav-backdrop");
-  var navLinks = Array.prototype.slice.call(nav.querySelectorAll('ul a[href^="#"]'));
-  var closeOnClick = Array.prototype.slice.call(nav.querySelectorAll('a[href^="#"]'));
   var toTop = document.querySelector("[data-to-top]");
   var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  /* current year in the footer */
-  var yearEl = document.querySelector("[data-year]");
-  if (yearEl) yearEl.textContent = String(new Date().getFullYear());
-
   /* ---- mobile menu ---- */
-  function openMenu() {
-    nav.classList.add("is-open");
-    document.body.classList.add("nav-open");
-    toggle.setAttribute("aria-expanded", "true");
-    if (window.NidoI18n) {
-      toggle.setAttribute("aria-label", lookupMenuLabel("close"));
-    }
-  }
-
-  function closeMenu() {
-    nav.classList.remove("is-open");
-    document.body.classList.remove("nav-open");
-    toggle.setAttribute("aria-expanded", "false");
-    if (window.NidoI18n) {
-      toggle.setAttribute("aria-label", lookupMenuLabel("open"));
-    }
-  }
-
-  function lookupMenuLabel(which) {
+  function menuLabel(which) {
     try {
       return window.NidoI18n.data[window.NidoI18n.get()].menu[which];
     } catch (e) {
@@ -42,18 +19,32 @@
     }
   }
 
-  function toggleMenu() {
-    if (nav.classList.contains("is-open")) {
-      closeMenu();
-    } else {
-      openMenu();
-    }
+  function openMenu() {
+    nav.classList.add("is-open");
+    document.body.classList.add("nav-open");
+    toggle.setAttribute("aria-expanded", "true");
+    toggle.setAttribute("aria-label", menuLabel("close"));
   }
 
-  if (toggle) toggle.addEventListener("click", toggleMenu);
+  function closeMenu() {
+    nav.classList.remove("is-open");
+    document.body.classList.remove("nav-open");
+    toggle.setAttribute("aria-expanded", "false");
+    toggle.setAttribute("aria-label", menuLabel("open"));
+  }
+
+  if (toggle) {
+    toggle.addEventListener("click", function () {
+      if (nav.classList.contains("is-open")) {
+        closeMenu();
+      } else {
+        openMenu();
+      }
+    });
+  }
   if (backdrop) backdrop.addEventListener("click", closeMenu);
 
-  closeOnClick.forEach(function (link) {
+  nav.querySelectorAll("a").forEach(function (link) {
     link.addEventListener("click", closeMenu);
   });
 
@@ -68,31 +59,17 @@
     if (window.innerWidth > 1280) closeMenu();
   });
 
-  /* keep the toggle label in sync when the language changes */
   document.addEventListener("languagechange", function () {
     var open = nav.classList.contains("is-open");
-    toggle.setAttribute("aria-label", lookupMenuLabel(open ? "close" : "open"));
+    toggle.setAttribute("aria-label", menuLabel(open ? "close" : "open"));
   });
 
-  /* ---- sticky header shadow + scroll-spy ---- */
-  var allSections = Array.prototype.slice.call(document.querySelectorAll("main > section[id]"));
-  var linkHrefs = navLinks.map(function (l) { return l.getAttribute("href"); });
+  /* ---- sticky-header shadow + back-to-top visibility ---- */
   var ticking = false;
 
   function onScroll() {
     header.classList.toggle("is-scrolled", window.scrollY > 8);
     if (toTop) toTop.classList.toggle("is-visible", window.scrollY > 700);
-
-    var line = window.scrollY + 130;
-    var currentId = null;
-    allSections.forEach(function (sec) {
-      if (sec.getBoundingClientRect().top + window.scrollY <= line) currentId = sec.id;
-    });
-    var target = currentId ? "#" + currentId : null;
-    var matched = linkHrefs.indexOf(target) !== -1;
-    navLinks.forEach(function (link) {
-      link.classList.toggle("is-active", matched && link.getAttribute("href") === target);
-    });
   }
 
   function requestScroll() {
@@ -106,7 +83,6 @@
 
   onScroll();
   window.addEventListener("scroll", requestScroll, { passive: true });
-  window.addEventListener("resize", requestScroll);
 
   if (toTop) {
     toTop.addEventListener("click", function () {
@@ -114,11 +90,27 @@
     });
   }
 
+  /* ---- smooth scroll for in-page anchors ---- */
+  document.querySelectorAll('a[href^="#"]').forEach(function (link) {
+    link.addEventListener("click", function (e) {
+      var id = link.getAttribute("href");
+      if (id.length < 2) return;
+      var target = document.querySelector(id);
+      if (!target) return;
+      e.preventDefault();
+      target.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "start" });
+      target.setAttribute("tabindex", "-1");
+      target.focus({ preventScroll: true });
+    });
+  });
+
   /* ---- fade sections in as they scroll into view ----
      Only elements that start below the fold are primed, so content is never
-     hidden on load. Two safety nets make sure nothing can stay invisible. */
+     hidden on load. Two safety nets guarantee nothing stays invisible. */
   var revealTargets = Array.prototype.slice.call(
-    document.querySelectorAll(".split, .section-head, .card-grid, .callout, .band-content, .map-frame")
+    document.querySelectorAll(
+      ".split, .section-head, .card-grid, .callout, .band-content, .map-frame, .league-row, .explore-grid, .home-intro-inner"
+    )
   );
 
   function revealAll() {
@@ -135,7 +127,7 @@
       el.classList.add("will-reveal");
     });
 
-    var reveal = new IntersectionObserver(
+    var observer = new IntersectionObserver(
       function (entries, obs) {
         entries.forEach(function (entry) {
           if (!entry.isIntersecting) return;
@@ -146,7 +138,7 @@
       { rootMargin: "0px 0px -10% 0px" }
     );
     primed.forEach(function (el) {
-      reveal.observe(el);
+      observer.observe(el);
     });
 
     window.setTimeout(revealAll, 1800);

@@ -6,9 +6,9 @@
 const translations = {
   en: {
     nav: {
+      home: "Home",
       about: "About",
-      mission: "Mission",
-      development: "Development",
+      program: "Program",
       competition: "Competition",
       coaching: "Coaching",
       community: "Community",
@@ -16,11 +16,48 @@ const translations = {
       join: "Join Nido Águila Riverside"
     },
 
+    common: {
+      backHome: "Back to home",
+      readMore: "Read more"
+    },
+
     hero: {
-      eyebrow: "Youth Soccer Academy · Riverside, CA",
+      eyebrow: "Club América Youth Development",
       title: "Train with purpose. Compete with pride. Grow with a vision.",
       body: "Nido Águila Riverside is a youth soccer academy committed to developing players through high-quality training, competitive experiences, and meaningful opportunities for growth and player projection — while building the values and character that prepare young people for life beyond the field.",
       cta: "Join Nido Águila Riverside"
+    },
+
+    home: {
+      introEyebrow: "Who We Are",
+      introTitle: "A local academy with a bigger vision.",
+      introText: "Nido Águila Riverside is a youth development academy built around the identity, values, and football tradition of Club América — a competitive, professional environment in Riverside where player development always comes first.",
+      introCta: "More about the academy"
+    },
+
+    leagues: {
+      eyebrow: "Competition",
+      title: "Where our teams compete",
+      note: "As academy placements are confirmed for the season, the leagues and competitions our teams play in will be listed here."
+    },
+
+    explore: {
+      eyebrow: "Explore",
+      title: "Get to know Nido Águila Riverside",
+      items: [
+        { title: "About", text: "Who we are and what we stand for." },
+        { title: "Program", text: "Training, standards, and player development." },
+        { title: "Competition & Projection", text: "Competing at a higher level and opening doors." },
+        { title: "Coaching", text: "How our coaches help players move forward." },
+        { title: "Community", text: "More than a team — and where we're headed." },
+        { title: "Locations", text: "Where and when we train." }
+      ]
+    },
+
+    program: {
+      eyebrow: "Our Program",
+      title: "How we develop players.",
+      lead: "Everything we do — training, competition, and daily habits — is built to move each player forward."
     },
 
     about: {
@@ -149,7 +186,8 @@ const translations = {
       eyebrow: "Get Started",
       title: "Your journey starts here. Ready to take the next step?",
       body: "Join a football community committed to helping young players train with purpose, compete with confidence, develop their potential, and grow into people of character.",
-      cta: "Join Nido Águila Riverside"
+      cta: "Email us to join",
+      note: "Email us with your player's name, age, and current team, and we'll follow up with tryout dates and details."
     },
 
     footer: {
@@ -175,9 +213,9 @@ const translations = {
 
   es: {
     nav: {
+      home: "Inicio",
       about: "Nosotros",
-      mission: "Misión",
-      development: "Desarrollo",
+      program: "Programa",
       competition: "Competencia",
       coaching: "Coaching",
       community: "Comunidad",
@@ -185,11 +223,48 @@ const translations = {
       join: "Únete a Nido Águila Riverside"
     },
 
+    common: {
+      backHome: "Volver al inicio",
+      readMore: "Leer más"
+    },
+
     hero: {
-      eyebrow: "Academia de Fútbol Juvenil · Riverside, CA",
+      eyebrow: "Desarrollo Juvenil Club América",
       title: "Entrena con propósito. Compite con orgullo. Crece con una visión.",
       body: "Nido Águila Riverside es una academia de fútbol juvenil comprometida con el desarrollo de jugadores a través de entrenamiento de alta calidad, experiencias competitivas y oportunidades significativas de crecimiento y proyección deportiva — mientras construye los valores y el carácter que preparan a los jóvenes para la vida más allá de la cancha.",
       cta: "Únete a Nido Águila Riverside"
+    },
+
+    home: {
+      introEyebrow: "Quiénes Somos",
+      introTitle: "Una academia local con una visión más grande.",
+      introText: "Nido Águila Riverside es una academia de desarrollo juvenil construida alrededor de la identidad, los valores y la tradición futbolística del Club América — un ambiente competitivo y profesional en Riverside donde el desarrollo del jugador siempre es lo primero.",
+      introCta: "Más sobre la academia"
+    },
+
+    leagues: {
+      eyebrow: "Competencia",
+      title: "Dónde compiten nuestros equipos",
+      note: "Conforme se confirmen las asignaciones de la academia para la temporada, aquí se listarán las ligas y competencias en las que participan nuestros equipos."
+    },
+
+    explore: {
+      eyebrow: "Explora",
+      title: "Conoce Nido Águila Riverside",
+      items: [
+        { title: "Nosotros", text: "Quiénes somos y qué representamos." },
+        { title: "Programa", text: "Entrenamiento, estándares y desarrollo del jugador." },
+        { title: "Competencia y Proyección", text: "Competir a un nivel más alto y abrir puertas." },
+        { title: "Coaching", text: "Cómo nuestros entrenadores ayudan a los jugadores a avanzar." },
+        { title: "Comunidad", text: "Más que un equipo — y hacia dónde vamos." },
+        { title: "Sedes", text: "Dónde y cuándo entrenamos." }
+      ]
+    },
+
+    program: {
+      eyebrow: "Nuestro Programa",
+      title: "Cómo desarrollamos jugadores.",
+      lead: "Todo lo que hacemos — entrenamiento, competencia y hábitos diarios — está diseñado para hacer avanzar a cada jugador."
     },
 
     about: {
@@ -318,7 +393,8 @@ const translations = {
       eyebrow: "Comienza Hoy",
       title: "Tu camino empieza aquí. ¿Listo para dar el siguiente paso?",
       body: "Únete a una comunidad futbolística comprometida a ayudar a los jóvenes jugadores a entrenar con propósito, competir con confianza, desarrollar su potencial y crecer como personas de carácter.",
-      cta: "Únete a Nido Águila Riverside"
+      cta: "Escríbenos para unirte",
+      note: "Escríbenos con el nombre, la edad y el equipo actual de tu jugador, y te contactaremos con las fechas y los detalles de las pruebas."
     },
 
     footer: {
