@@ -160,7 +160,9 @@ const translations = {
     community: {
       eyebrow: "Community",
       title: "More than a team. A football community.",
-      p1: "Nido Águila Riverside is a community built around players, families, coaches, and a shared passion for the game. Together, we are building a football community in Riverside that develops players, creates opportunities, and makes a positive impact beyond the field."
+      p1: "Nido Águila Riverside is a community built around players, families, coaches, and a shared passion for the game. Together, we are building a football community in Riverside that develops players, creates opportunities, and makes a positive impact beyond the field.",
+      galleryEyebrow: "Inside the Team",
+      galleryTitle: "Life at Nido Águila Riverside"
     },
 
     locations: {
@@ -203,6 +205,12 @@ const translations = {
       prev: "Previous slide",
       next: "Next slide",
       goto: "Go to slide"
+    },
+    gallery: {
+      open: "Open photo",
+      close: "Close",
+      prev: "Previous photo",
+      next: "Next photo"
     },
     menu: {
       open: "Open menu",
@@ -367,7 +375,9 @@ const translations = {
     community: {
       eyebrow: "Comunidad",
       title: "Más que un equipo. Una comunidad futbolística.",
-      p1: "Nido Águila Riverside es una comunidad construida alrededor de jugadores, familias, entrenadores y una pasión compartida por el juego. Juntos, estamos construyendo una comunidad futbolística en Riverside que desarrolla jugadores, crea oportunidades y genera un impacto positivo más allá de la cancha."
+      p1: "Nido Águila Riverside es una comunidad construida alrededor de jugadores, familias, entrenadores y una pasión compartida por el juego. Juntos, estamos construyendo una comunidad futbolística en Riverside que desarrolla jugadores, crea oportunidades y genera un impacto positivo más allá de la cancha.",
+      galleryEyebrow: "Dentro del Equipo",
+      galleryTitle: "La vida en Nido Águila Riverside"
     },
 
     locations: {
@@ -410,6 +420,12 @@ const translations = {
       prev: "Imagen anterior",
       next: "Imagen siguiente",
       goto: "Ir a la imagen"
+    },
+    gallery: {
+      open: "Abrir foto",
+      close: "Cerrar",
+      prev: "Foto anterior",
+      next: "Foto siguiente"
     },
     menu: {
       open: "Abrir menú",

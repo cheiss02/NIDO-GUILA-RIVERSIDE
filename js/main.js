@@ -109,7 +109,7 @@
      hidden on load. Two safety nets guarantee nothing stays invisible. */
   var revealTargets = Array.prototype.slice.call(
     document.querySelectorAll(
-      ".split, .section-head, .card-grid, .callout, .band-content, .map-frame, .league-row, .explore-grid, .home-intro-inner"
+      ".split, .section-head, .card-grid, .callout, .band-content, .map-frame, .league-row, .explore-grid, .home-intro-inner, .gallery"
     )
   );
 
