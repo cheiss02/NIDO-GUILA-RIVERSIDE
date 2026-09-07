@@ -162,7 +162,12 @@ const translations = {
       title: "More than a team. A football community.",
       p1: "Nido Águila Riverside is a community built around players, families, coaches, and a shared passion for the game. Together, we are building a football community in Riverside that develops players, creates opportunities, and makes a positive impact beyond the field.",
       galleryEyebrow: "Inside the Team",
-      galleryTitle: "Life at Nido Águila Riverside"
+      galleryTitle: "Life at Nido Águila Riverside",
+      galleryLoading: "Loading photos…",
+      galleryEmpty: "Photo albums are on the way.",
+      viewAlbum: "View album",
+      photo: "photo",
+      photos: "photos"
     },
 
     locations: {
@@ -377,7 +382,12 @@ const translations = {
       title: "Más que un equipo. Una comunidad futbolística.",
       p1: "Nido Águila Riverside es una comunidad construida alrededor de jugadores, familias, entrenadores y una pasión compartida por el juego. Juntos, estamos construyendo una comunidad futbolística en Riverside que desarrolla jugadores, crea oportunidades y genera un impacto positivo más allá de la cancha.",
       galleryEyebrow: "Dentro del Equipo",
-      galleryTitle: "La vida en Nido Águila Riverside"
+      galleryTitle: "La vida en Nido Águila Riverside",
+      galleryLoading: "Cargando fotos…",
+      galleryEmpty: "Los álbumes de fotos están en camino.",
+      viewAlbum: "Ver álbum",
+      photo: "foto",
+      photos: "fotos"
     },
 
     locations: {

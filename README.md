@@ -37,15 +37,20 @@ Each page tells the layout which nav item to highlight with
 `<body data-page="about">` (etc.).
 
 ```
-css/style.css      styles — theme variables are at the very top
-js/layout.js        shared header + footer (+ the Join form URL), injected everywhere
-js/i18n.js          English + Spanish copy and the EN/ES toggle
-js/carousel.js      home-page hero carousel
-js/gallery.js       community-page photo gallery + lightbox
-js/main.js          mobile menu, back-to-top, scroll animations
-assets/logos/       crest + "where we compete" logos, social share image
-assets/pictures/    hero and section photos (thumbs/ for the gallery grid)
-assets/favicon.ico  browser tab icon (generated from the crest)
+css/style.css                    styles — theme variables are at the very top
+js/layout.js                      shared header + footer (+ the Join form URL), injected everywhere
+js/i18n.js                        English + Spanish copy and the EN/ES toggle
+js/carousel.js                    home-page hero carousel
+js/gallery.js                     community-page photo albums + lightbox
+js/main.js                        mobile menu, back-to-top, scroll animations
+assets/logos/                     crest + "where we compete" logos, social share image
+assets/pictures/                  hero and section photos
+assets/pictures/gallery/          one folder per Community photo album (see below)
+assets/pictures/gallery-thumbs/   auto-generated small copies for the album grid
+assets/pictures/gallery-albums.json  auto-generated list of albums
+scripts/build-gallery.mjs         rebuilds the album list + thumbnails
+.github/workflows/build-gallery.yml  runs that script automatically on push
+assets/favicon.ico                browser tab icon (generated from the crest)
 ```
 
 ## Editing content
@@ -94,12 +99,8 @@ for the hero) at them in the HTML. Photos are referenced by filename.
 | Program | `dsc_0538` (banner), `dsc_0603`, `dsc_0432` |
 | Competition | `dsc_0457` (banner), `2n0a7606` |
 | Coaching | `dsc_0627` (banner), `dsc_0499` |
-| Community | `dsc_0401` (banner), `dsc_6318`, `dsc_0606`, gallery |
+| Community | `dsc_0401` (banner), `dsc_6318`, `dsc_0606` |
 | Locations | `dsc_0633` (banner) |
-
-The Community page **gallery** shows every photo (`assets/pictures/thumbs/`
-for the grid, full-size in the lightbox). Add or remove `.gallery-item`
-buttons in `community.html`.
 
 Spare shots in the folder: `dsc_0394`, `dsc_0487`, `dsc_0600`, `dsc_0639`,
 `hjn04418`, `hjn05391`, `2n0a7604`.
@@ -107,6 +108,37 @@ Spare shots in the folder: `dsc_0394`, `dsc_0487`, `dsc_0600`, `dsc_0639`,
 The originals were large camera JPEGs; they were resized (~1600px wide,
 1920px for the hero) and compressed for the web. Shrink any new full-size
 photo before adding it — a ~300–500 KB JPEG is plenty.
+
+## Community photo albums
+
+The Community page shows one cover tile per album; clicking a tile opens a
+full-screen carousel of that album's photos.
+
+Each album is a folder inside `assets/pictures/gallery/` **named
+`<Title> <number>`**:
+
+```
+assets/pictures/gallery/
+  Community 1/            →  tile titled "Community"
+  Game with Colorado 2/  →  tile titled "Game with Colorado"
+  Fun activity 3/        →  tile titled "Fun activity"
+```
+
+The trailing number sets the order and is dropped from the title. Put any
+number of photos in a folder (any filenames). The first photo becomes the
+tile's cover image.
+
+**To add an album:** create a new folder, e.g. `America vs Dallas 4/`, drop
+photos in, and commit. The **Build gallery** GitHub Action rebuilds
+`gallery-albums.json` and the thumbnails automatically — no code changes.
+(First time only: Settings → Actions → General → Workflow permissions →
+"Read and write permissions", so the Action can commit its output back.)
+
+Not using Actions? Run `node scripts/build-gallery.mjs` and commit the
+result, or edit `assets/pictures/gallery-albums.json` by hand.
+
+Keep album photos web-sized (~1500px, ~300 KB) — they are committed to the
+repo as-is.
 
 ## Colours and fonts
 
