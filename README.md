@@ -12,12 +12,19 @@ no build step, no dependencies. Hosted on GitHub Pages.
 | `program.html` | Program — Our Mission, The Nido Standard, Player Development |
 | `competition.html` | Competition & Player Projection |
 | `coaching.html` | Coaching + Our Coaching Standard |
-| `community.html` | Community + Our Vision |
+| `community.html` | Community + Our Vision + photo gallery |
 | `locations.html` | Training Locations (map) |
-| `join.html` | Join / tryout contact |
 
 Every interior page has a **Back to home** link near the top and a button
 at the bottom.
+
+## The "Join" button
+
+Every "Join Nido Águila Riverside" button (nav, hero, footer, home CTA)
+opens the Google registration form in a new tab. The URL is set once as
+`FORM_URL` at the top of `js/layout.js`; the hero and home-CTA buttons in
+`index.html` also carry it directly — update all three spots if the form
+link changes.
 
 ## How the shared parts work
 
@@ -31,12 +38,13 @@ Each page tells the layout which nav item to highlight with
 
 ```
 css/style.css      styles — theme variables are at the very top
-js/layout.js        shared header + footer, injected on every page
+js/layout.js        shared header + footer (+ the Join form URL), injected everywhere
 js/i18n.js          English + Spanish copy and the EN/ES toggle
 js/carousel.js      home-page hero carousel
+js/gallery.js       community-page photo gallery + lightbox
 js/main.js          mobile menu, back-to-top, scroll animations
-assets/logos/       crest logos + social share image
-assets/pictures/    hero and section photos
+assets/logos/       crest + "where we compete" logos, social share image
+assets/pictures/    hero and section photos (thumbs/ for the gallery grid)
 assets/favicon.ico  browser tab icon (generated from the crest)
 ```
 
@@ -54,15 +62,25 @@ Standard** (5) — are the `items` arrays inside `standard` and
 Training days/times are in the `locations` block; the map itself is the
 `<iframe>` in `locations.html`.
 
-## The leagues section (home page)
+## The "Where we compete" logos (home page)
 
-Right now it shows placeholder badges (the academy crest) and a
-"to be announced" note. When league placements are confirmed:
+Four logo cards in `index.html` (`.league-row`):
 
-1. Drop each league's logo into `assets/logos/` (e.g. `league-ecnl.png`).
-2. In `index.html`, replace the `src` / `alt` of each `.league-badge`
-   image with the real logo. Add or remove badges as needed.
-3. Update `leagues.note` in `js/i18n.js` (both `en` and `es`).
+| Logo file | Links to |
+|---|---|
+| `league-calsouth.png` | https://calsouth.com/ |
+| `league-inland.png` | Inland United Instagram |
+| `league-mundialito.png` | https://mundialito.net/ |
+| `league-america.png` | https://copaclubamerica.com/home |
+
+To change one: replace the file in `assets/logos/` (keep the name) or edit
+the `src`/`href` in `index.html`. A logo with a light background can sit on
+a plain `.league-card`; one designed on black uses
+`class="league-card league-card--dark"` (like Mundialito). Edit the intro
+line via `leagues.note` in `js/i18n.js`.
+
+> The current Cal South image is low-resolution and cropped — replace
+> `assets/logos/league-calsouth.png` with a clean version when you have one.
 
 ## Swapping photos
 
@@ -76,9 +94,12 @@ for the hero) at them in the HTML. Photos are referenced by filename.
 | Program | `dsc_0538` (banner), `dsc_0603`, `dsc_0432` |
 | Competition | `dsc_0457` (banner), `2n0a7606` |
 | Coaching | `dsc_0627` (banner), `dsc_0499` |
-| Community | `dsc_0401` (banner), `dsc_6318`, `dsc_0606` |
+| Community | `dsc_0401` (banner), `dsc_6318`, `dsc_0606`, gallery |
 | Locations | `dsc_0633` (banner) |
-| Join | `0v1a9546` (banner) |
+
+The Community page **gallery** shows every photo (`assets/pictures/thumbs/`
+for the grid, full-size in the lightbox). Add or remove `.gallery-item`
+buttons in `community.html`.
 
 Spare shots in the folder: `dsc_0394`, `dsc_0487`, `dsc_0600`, `dsc_0639`,
 `hjn04418`, `hjn05391`, `2n0a7604`.
@@ -101,14 +122,15 @@ Top of `css/style.css`:
 
 Change those and the whole site reskins. Fonts load from Google Fonts.
 
-## Contact details to fill in
+## Contact details
 
-- Footer + Join email links: `info@nidoaguilariverside.com` (in `js/layout.js`
-  and `join.html`)
-- Instagram / Facebook links: `https://instagram.com/`, `https://facebook.com/`
-  (in `js/layout.js`)
-- `YOURDOMAIN.com` in the `<link rel="canonical">`, Open Graph tags, and the
-  JSON-LD block of each `.html` file — replace with the real domain.
+- Footer email link: `info@nidoaguilariverside.com` (in `js/layout.js`) —
+  change if the academy uses a different address.
+- Footer socials point at the real Nido Águila Riverside Facebook and
+  Instagram (in `js/layout.js`).
+- Still to replace: `YOURDOMAIN.com` in the `<link rel="canonical">`,
+  Open Graph tags, and JSON-LD block of each `.html` file — swap for the
+  real domain once it's set.
 
 ## Running locally
 

@@ -38,7 +38,7 @@ const translations = {
     leagues: {
       eyebrow: "Competition",
       title: "Where our teams compete",
-      note: "As academy placements are confirmed for the season, the leagues and competitions our teams play in will be listed here."
+      note: "Our teams train and compete across local leagues, tournaments, and international events."
     },
 
     explore: {
@@ -188,8 +188,8 @@ const translations = {
       eyebrow: "Get Started",
       title: "Your journey starts here. Ready to take the next step?",
       body: "Join a football community committed to helping young players train with purpose, compete with confidence, develop their potential, and grow into people of character.",
-      cta: "Email us to join",
-      note: "Email us with your player's name, age, and current team, and we'll follow up with tryout dates and details."
+      cta: "Join Nido Águila Riverside",
+      note: "Fill out the registration form with your player's details and we'll follow up with tryout dates and information."
     },
 
     footer: {
@@ -253,7 +253,7 @@ const translations = {
     leagues: {
       eyebrow: "Competencia",
       title: "Dónde compiten nuestros equipos",
-      note: "Conforme se confirmen las asignaciones de la academia para la temporada, aquí se listarán las ligas y competencias en las que participan nuestros equipos."
+      note: "Nuestros equipos entrenan y compiten en ligas locales, torneos y eventos internacionales."
     },
 
     explore: {
@@ -403,8 +403,8 @@ const translations = {
       eyebrow: "Comienza Hoy",
       title: "Tu camino empieza aquí. ¿Listo para dar el siguiente paso?",
       body: "Únete a una comunidad futbolística comprometida a ayudar a los jóvenes jugadores a entrenar con propósito, competir con confianza, desarrollar su potencial y crecer como personas de carácter.",
-      cta: "Escríbenos para unirte",
-      note: "Escríbenos con el nombre, la edad y el equipo actual de tu jugador, y te contactaremos con las fechas y los detalles de las pruebas."
+      cta: "Únete a Nido Águila Riverside",
+      note: "Completa el formulario de registro con los datos de tu jugador y te contactaremos con las fechas e información de las pruebas."
     },
 
     footer: {
