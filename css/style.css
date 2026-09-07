@@ -890,6 +890,16 @@ main > section[id] {
   margin-bottom: 1rem;
 }
 
+.footer-sublabel {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 0.64rem;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.55);
+  margin: 1.35rem 0 0.7rem;
+}
+
 .footer-col ul {
   list-style: none;
   margin: 0;

@@ -168,7 +168,7 @@ const translations = {
     locations: {
       eyebrow: "Training Locations",
       title: "Find your field.",
-      place: "Nichols Park, Riverside, California",
+      place: "Potrero Park, Moreno Valley, California",
       daysLabel: "Training Days",
       days: "Tuesday and Thursday",
       timeLabel: "Training Time",
@@ -383,7 +383,7 @@ const translations = {
     locations: {
       eyebrow: "Sedes de Entrenamiento",
       title: "Encuentra tu cancha.",
-      place: "Nichols Park, Riverside, California",
+      place: "Potrero Park, Moreno Valley, California",
       daysLabel: "Días de entrenamiento",
       days: "Martes y jueves",
       timeLabel: "Horario de entrenamiento",
