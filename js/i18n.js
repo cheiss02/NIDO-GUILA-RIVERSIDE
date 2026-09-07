@@ -54,6 +54,37 @@ const translations = {
       ]
     },
 
+    faq: {
+      eyebrow: "Questions",
+      title: "Frequently asked questions",
+      items: [
+        {
+          q: "What ages does Nido Águila Riverside train?",
+          a: "We welcome boys and girls across youth ages. Players train in groups by age and stage of development."
+        },
+        {
+          q: "Where does the academy train?",
+          a: "At Potrero Park, 16841 Via Pamplona, Moreno Valley, CA 92551. We serve families across Riverside, Moreno Valley, and the wider Inland Empire."
+        },
+        {
+          q: "When are practices?",
+          a: "Tuesdays and Thursdays, 6:00–8:00 PM. Field and schedule details are confirmed as academy assignments are set."
+        },
+        {
+          q: "How do we sign up or try out?",
+          a: "Use any Join Nido Águila Riverside button on this site to open the registration form. We follow up with tryout dates and details."
+        },
+        {
+          q: "Is the academy affiliated with Club América?",
+          a: "Yes. Nido Águila Riverside is part of the Club América Nido USA network and is built around Club América's identity, values, and football methodology."
+        },
+        {
+          q: "Do you support Spanish-speaking families?",
+          a: "Yes. Our program and communication are bilingual, in English and Spanish."
+        }
+      ]
+    },
+
     program: {
       eyebrow: "Our Program",
       title: "How we develop players.",
@@ -271,6 +302,37 @@ const translations = {
         { title: "Coaching", text: "Cómo nuestros entrenadores ayudan a los jugadores a avanzar." },
         { title: "Comunidad", text: "Más que un equipo — y hacia dónde vamos." },
         { title: "Sedes", text: "Dónde y cuándo entrenamos." }
+      ]
+    },
+
+    faq: {
+      eyebrow: "Preguntas",
+      title: "Preguntas frecuentes",
+      items: [
+        {
+          q: "¿Qué edades entrena Nido Águila Riverside?",
+          a: "Recibimos a niños y niñas de todas las edades juveniles. Los jugadores entrenan en grupos según su edad y etapa de desarrollo."
+        },
+        {
+          q: "¿Dónde entrena la academia?",
+          a: "En Potrero Park, 16841 Via Pamplona, Moreno Valley, CA 92551. Atendemos a familias de Riverside, Moreno Valley y todo el Inland Empire."
+        },
+        {
+          q: "¿Cuándo son los entrenamientos?",
+          a: "Martes y jueves, de 6:00 a 8:00 PM. Los detalles de cancha y horario se confirman conforme se asignan a la academia."
+        },
+        {
+          q: "¿Cómo nos inscribimos o hacemos la prueba?",
+          a: "Usa cualquier botón Únete a Nido Águila Riverside del sitio para abrir el formulario de registro. Te contactamos con las fechas y los detalles de las pruebas."
+        },
+        {
+          q: "¿La academia está afiliada al Club América?",
+          a: "Sí. Nido Águila Riverside es parte de la red Club América Nido USA y está construida alrededor de la identidad, los valores y la metodología del Club América."
+        },
+        {
+          q: "¿Apoyan a las familias de habla hispana?",
+          a: "Sí. Nuestro programa y comunicación son bilingües, en inglés y español."
+        }
       ]
     },
 

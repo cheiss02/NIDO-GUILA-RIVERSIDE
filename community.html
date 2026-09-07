@@ -3,6 +3,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; frame-src https://www.google.com https://maps.google.com; connect-src 'self'; base-uri 'self'; form-action 'self' https://docs.google.com; object-src 'none'; upgrade-insecure-requests">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="robots" content="index, follow, max-image-preview:large">
   <title>Community &amp; Vision | Nido Águila Riverside</title>
   <meta name="description" content="Nido Águila Riverside is a football community of players, families, and coaches in Riverside — and a vision to build a leading youth development academy in the Inland Empire.">
   <link rel="canonical" href="https://YOURDOMAIN.com/community.html">
@@ -67,10 +70,10 @@
           <h2 data-i18n="community.galleryTitle"></h2>
         </header>
 
-        <!-- Albums are read from assets/pictures/gallery-albums.json and rendered
-             by js/gallery.js. To add an album, drop a folder of photos into
-             assets/pictures/gallery/ named "<Title> <number>" (e.g. "America vs
-             dallas 4"); the Build gallery GitHub Action does the rest. -->
+        <!-- Album tiles are rendered by js/gallery.js from
+             assets/pictures/gallery-albums.json. To add one, drop a folder of
+             photos into assets/pictures/gallery/ named "<Title> <number>"
+             (e.g. "America vs Dallas 4"); the Build GitHub Action does the rest. -->
         <div class="gallery-folders" data-gallery-folders>
           <p class="gallery-loading" data-i18n="community.galleryLoading">Loading photos…</p>
         </div>

@@ -1270,6 +1270,70 @@ main > section[id] {
 }
 
 /* --------------------------------------------------------------------------
+   FAQ
+   -------------------------------------------------------------------------- */
+
+.faq-list {
+  max-width: 46rem;
+  margin: 0 auto;
+}
+
+.faq-item {
+  border-top: 1px solid var(--color-line);
+}
+
+.faq-item:last-child {
+  border-bottom: 1px solid var(--color-line);
+}
+
+.faq-item summary {
+  list-style: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.15rem 0;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 1.02rem;
+  color: var(--color-primary);
+}
+
+.faq-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq-item summary::after {
+  content: "+";
+  font-weight: 700;
+  font-size: 1.4rem;
+  line-height: 1;
+  color: var(--color-red);
+  transition: transform 0.2s ease;
+  flex: none;
+}
+
+.faq-item[open] summary::after {
+  transform: rotate(45deg);
+}
+
+.faq-item summary:focus-visible {
+  outline: 3px solid var(--color-primary);
+  outline-offset: 3px;
+}
+
+.faq-answer {
+  padding: 0 0 1.25rem;
+}
+
+.faq-answer p {
+  margin: 0;
+  color: var(--color-ink-soft);
+  line-height: 1.65;
+}
+
+/* --------------------------------------------------------------------------
    Leagues
    -------------------------------------------------------------------------- */
 

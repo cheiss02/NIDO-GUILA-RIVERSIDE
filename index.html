@@ -3,6 +3,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; frame-src https://www.google.com https://maps.google.com; connect-src 'self'; base-uri 'self'; form-action 'self' https://docs.google.com; object-src 'none'; upgrade-insecure-requests">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="robots" content="index, follow, max-image-preview:large">
   <title>Nido Águila Riverside | Youth Soccer Academy</title>
   <meta name="description" content="Nido Águila Riverside is a youth soccer academy in Riverside, California, developing players through high-quality training, competition, and the identity and values of Club América.">
   <link rel="canonical" href="https://YOURDOMAIN.com/">
@@ -29,20 +32,62 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "SportsOrganization",
-    "name": "Nido Águila Riverside",
-    "sport": "Soccer",
-    "url": "https://YOURDOMAIN.com/",
-    "logo": "https://YOURDOMAIN.com/assets/logos/nido-riverside-crest.png",
-    "areaServed": "Riverside and Moreno Valley, California",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "Potrero Park, 16841 Via Pamplona",
-      "addressLocality": "Moreno Valley",
-      "addressRegion": "CA",
-      "postalCode": "92551",
-      "addressCountry": "US"
-    }
+    "@graph": [
+      {
+        "@type": ["SportsActivityLocation", "SportsClub"],
+        "@id": "https://YOURDOMAIN.com/#academy",
+        "name": "Nido Águila Riverside",
+        "alternateName": "Nido Águila Club América Riverside",
+        "description": "Youth soccer academy for boys and girls in the Riverside and Moreno Valley area of California, developing players through high-quality training, competition, and the identity and values of Club América.",
+        "url": "https://YOURDOMAIN.com/",
+        "logo": "https://YOURDOMAIN.com/assets/logos/nido-riverside-crest.png",
+        "image": "https://YOURDOMAIN.com/assets/logos/nido-riverside-share.jpg",
+        "email": "info@nidoaguilariverside.com",
+        "sport": "Soccer",
+        "knowsLanguage": ["en", "es"],
+        "areaServed": [
+          { "@type": "City", "name": "Riverside, California" },
+          { "@type": "City", "name": "Moreno Valley, California" },
+          { "@type": "AdministrativeArea", "name": "Inland Empire, California" }
+        ],
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Potrero Park, 16841 Via Pamplona",
+          "addressLocality": "Moreno Valley",
+          "addressRegion": "CA",
+          "postalCode": "92551",
+          "addressCountry": "US"
+        },
+        "geo": { "@type": "GeoCoordinates", "latitude": 33.8744, "longitude": -117.214 },
+        "openingHoursSpecification": [
+          { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Tuesday", "Thursday"], "opens": "18:00", "closes": "20:00" }
+        ],
+        "sameAs": [
+          "https://www.facebook.com/p/Nido-%C3%81guila-Riverside-61582146720180/",
+          "https://www.instagram.com/nidoaguilariverside/"
+        ],
+        "parentOrganization": {
+          "@type": "SportsOrganization",
+          "name": "Club América Nido USA",
+          "sameAs": [
+            "https://www.instagram.com/clubamericanidousa",
+            "https://www.facebook.com/share/1F9LExWhpk/"
+          ]
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://YOURDOMAIN.com/#faq",
+        "mainEntity": [
+          { "@type": "Question", "name": "What ages does Nido Águila Riverside train?", "acceptedAnswer": { "@type": "Answer", "text": "We welcome boys and girls across youth ages. Players train in groups by age and stage of development." } },
+          { "@type": "Question", "name": "Where does the academy train?", "acceptedAnswer": { "@type": "Answer", "text": "At Potrero Park, 16841 Via Pamplona, Moreno Valley, CA 92551. We serve families across Riverside, Moreno Valley, and the wider Inland Empire." } },
+          { "@type": "Question", "name": "When are practices?", "acceptedAnswer": { "@type": "Answer", "text": "Tuesdays and Thursdays, 6:00–8:00 PM. Field and schedule details are confirmed as academy assignments are set." } },
+          { "@type": "Question", "name": "How do we sign up or try out?", "acceptedAnswer": { "@type": "Answer", "text": "Use any Join Nido Águila Riverside button on this site to open the registration form. We follow up with tryout dates and details." } },
+          { "@type": "Question", "name": "Is the academy affiliated with Club América?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Nido Águila Riverside is part of the Club América Nido USA network and is built around Club América's identity, values, and football methodology." } },
+          { "@type": "Question", "name": "Do you support Spanish-speaking families?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Our program and communication are bilingual, in English and Spanish." } }
+        ]
+      }
+    ]
   }
   </script>
 
@@ -186,6 +231,41 @@
         </div>
 
         <p class="note" data-i18n="leagues.note"></p>
+      </div>
+    </section>
+
+    <section class="section" id="faq">
+      <div class="wrap">
+        <header class="section-head section-head-center">
+          <p class="eyebrow" data-i18n="faq.eyebrow">Questions</p>
+          <h2 data-i18n="faq.title"></h2>
+        </header>
+        <div class="faq-list">
+          <details class="faq-item">
+            <summary data-i18n="faq.items.0.q"></summary>
+            <div class="faq-answer"><p data-i18n="faq.items.0.a"></p></div>
+          </details>
+          <details class="faq-item">
+            <summary data-i18n="faq.items.1.q"></summary>
+            <div class="faq-answer"><p data-i18n="faq.items.1.a"></p></div>
+          </details>
+          <details class="faq-item">
+            <summary data-i18n="faq.items.2.q"></summary>
+            <div class="faq-answer"><p data-i18n="faq.items.2.a"></p></div>
+          </details>
+          <details class="faq-item">
+            <summary data-i18n="faq.items.3.q"></summary>
+            <div class="faq-answer"><p data-i18n="faq.items.3.a"></p></div>
+          </details>
+          <details class="faq-item">
+            <summary data-i18n="faq.items.4.q"></summary>
+            <div class="faq-answer"><p data-i18n="faq.items.4.a"></p></div>
+          </details>
+          <details class="faq-item">
+            <summary data-i18n="faq.items.5.q"></summary>
+            <div class="faq-answer"><p data-i18n="faq.items.5.a"></p></div>
+          </details>
+        </div>
       </div>
     </section>
 

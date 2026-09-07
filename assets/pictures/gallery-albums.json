@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-07T06:53:37.573Z",
+  "generated": "2026-09-07T07:29:02.087Z",
   "albums": [
     {
       "title": "Community",
@@ -28,17 +28,6 @@
         "hjn04418.jpg",
         "hjn05391.jpg",
         "hjn06328.jpg"
-      ]
-    },
-    {
-      "title": "Test",
-      "order": 2,
-      "folder": "Test 2",
-      "photos": [
-        "america.jpeg",
-        "CAl.jpeg",
-        "Inland.jpeg",
-        "mundialito.jpeg"
       ]
     }
   ]

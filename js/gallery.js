@@ -35,7 +35,11 @@
   }
 
   function setState(cls, message) {
-    mount.innerHTML = '<p class="' + cls + '">' + message + "</p>";
+    mount.textContent = "";
+    var p = document.createElement("p");
+    p.className = cls;
+    p.textContent = message;
+    mount.appendChild(p);
   }
 
   setState("gallery-loading", txt("community.galleryLoading", "Loading photos…"));

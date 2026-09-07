@@ -1,0 +1,55 @@
+name: Build
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "assets/pictures/gallery/**"
+      - "*.html"
+      - "CNAME"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: build-site
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Resolve site URL
+        id: site
+        run: |
+          if [ -f CNAME ]; then
+            echo "url=https://$(tr -d '[:space:]' < CNAME)/" >> "$GITHUB_OUTPUT"
+          else
+            owner="$(echo '${{ github.repository_owner }}' | tr '[:upper:]' '[:lower:]')"
+            repo="${{ github.event.repository.name }}"
+            if [ "$repo" = "$owner.github.io" ]; then
+              echo "url=https://$owner.github.io/" >> "$GITHUB_OUTPUT"
+            else
+              echo "url=https://$owner.github.io/$repo/" >> "$GITHUB_OUTPUT"
+            fi
+          fi
+
+      - name: Rebuild gallery, sitemap and robots
+        run: node scripts/build-site.mjs
+        env:
+          SITE_URL: ${{ steps.site.outputs.url }}
+
+      - name: Commit updates
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A assets/pictures/gallery-albums.json assets/pictures/gallery-thumbs sitemap.xml robots.txt
+          if git diff --cached --quiet; then
+            echo "Nothing to update."
+          else
+            git commit -m "Rebuild generated files [skip ci]"
+            git push
+          fi

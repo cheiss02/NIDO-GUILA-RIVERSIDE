@@ -3,6 +3,56 @@
    current. Runs before i18n.js so the injected markup gets translated. */
 
 (function () {
+  /* Break out of any frame we might be embedded in (clickjacking guard —
+     GitHub Pages can't send the X-Frame-Options / frame-ancestors header). */
+  if (window.top !== window.self) {
+    try {
+      window.top.location.href = window.self.location.href;
+    } catch (e) {
+      document.documentElement.style.display = "none";
+    }
+  }
+
+  /* Point canonical / social / structured-data URLs at the real origin the
+     page is served from, so they are correct on whatever domain is used.
+     (The raw HTML keeps YOURDOMAIN.com as a marker — replace it there too
+     when the domain is set, for crawlers that don't run JavaScript.) */
+  (function fixUrls() {
+    var origin = window.location.origin;
+    if (!origin || origin === "null" || origin.indexOf("http") !== 0) return;
+    var pageUrl = origin + window.location.pathname.replace(/\/index\.html$/, "/");
+    var shareImg = origin + "/assets/logos/nido-riverside-share.jpg";
+
+    function ensure(match, create) {
+      var el = document.head.querySelector(match);
+      if (!el) {
+        el = document.createElement(create.tag);
+        for (var k in create.attrs) el.setAttribute(k, create.attrs[k]);
+        document.head.appendChild(el);
+      }
+      return el;
+    }
+    function metaProp(prop, content) {
+      ensure('meta[property="' + prop + '"]', { tag: "meta", attrs: { property: prop } }).setAttribute("content", content);
+    }
+    function metaName(name, content) {
+      ensure('meta[name="' + name + '"]', { tag: "meta", attrs: { name: name } }).setAttribute("content", content);
+    }
+
+    ensure('link[rel="canonical"]', { tag: "link", attrs: { rel: "canonical" } }).setAttribute("href", pageUrl);
+    metaProp("og:url", pageUrl);
+    metaProp("og:image", shareImg);
+    metaProp("og:site_name", "Nido Águila Riverside");
+    metaProp("og:locale", "en_US");
+    metaName("twitter:card", "summary_large_image");
+    metaName("twitter:image", shareImg);
+
+    var ld = document.head.querySelector('script[type="application/ld+json"]');
+    if (ld && ld.textContent.indexOf("YOURDOMAIN.com") !== -1) {
+      ld.textContent = ld.textContent.split("https://YOURDOMAIN.com").join(origin);
+    }
+  })();
+
   var current = document.body.getAttribute("data-page") || "home";
 
   /* Registration form — every "Join" button points here. */
