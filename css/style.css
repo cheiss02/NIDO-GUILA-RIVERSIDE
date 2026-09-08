@@ -1334,6 +1334,55 @@ main > section[id] {
 }
 
 /* --------------------------------------------------------------------------
+   Coaches
+   -------------------------------------------------------------------------- */
+
+.coach-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: clamp(1.5rem, 1rem + 2.5vw, 3rem);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.coach-card {
+  flex: 0 1 clamp(240px, 40vw, 300px);
+  text-align: center;
+}
+
+.coach-photo {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  object-position: top;
+  border-radius: var(--radius);
+  background: var(--color-card);
+  box-shadow: var(--shadow);
+  margin-bottom: 1.1rem;
+}
+
+.coach-name {
+  margin: 0;
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 1.1rem;
+  letter-spacing: -0.01em;
+  color: var(--color-primary);
+}
+
+.coach-role {
+  margin: 0.2rem 0 0;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-red);
+}
+
+/* --------------------------------------------------------------------------
    Leagues
    -------------------------------------------------------------------------- */
 

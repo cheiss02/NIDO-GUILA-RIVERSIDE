@@ -161,6 +161,15 @@ const translations = {
       p2: "Coaching at Nido Águila Riverside goes beyond teaching soccer. Our coaches guide players through the demands of training and competition while helping them develop confidence, discipline, responsibility, and respect."
     },
 
+    coaches: {
+      eyebrow: "Our Staff",
+      title: "Meet the coaches.",
+      members: [
+        { name: "Hugo Gutiérrez", role: "Sports Director · Coordinator" },
+        { name: "Alex González", role: "Coach" }
+      ]
+    },
+
     coachingStandard: {
       eyebrow: "Our Coaching Standard",
       title: "How our coaches help players move forward.",
@@ -410,6 +419,15 @@ const translations = {
       title: "Una guía que ayuda a cada jugador a avanzar.",
       p1: "Nuestros entrenadores están comprometidos a crear un ambiente desafiante, solidario y positivo donde los jugadores puedan desarrollarse con propósito.",
       p2: "El coaching en Nido Águila Riverside va más allá de enseñar fútbol. Nuestros entrenadores guían a los jugadores a través de las exigencias del entrenamiento y la competencia, mientras los ayudan a desarrollar confianza, disciplina, responsabilidad y respeto."
+    },
+
+    coaches: {
+      eyebrow: "Nuestro Equipo",
+      title: "Conoce a los entrenadores.",
+      members: [
+        { name: "Hugo Gutiérrez", role: "Director Deportivo · Coordinador" },
+        { name: "Alex González", role: "Entrenador" }
+      ]
     },
 
     coachingStandard: {
