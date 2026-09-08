@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://cheiss02.github.io/NIDO-GUILA-RIVERSIDE/sitemap.xml
